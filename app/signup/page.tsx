@@ -1,8 +1,8 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { signup } from "@/lib/auth";
-import SignupForm from "@/components/auth/SignupForm";
+import { signup } from "../../lib/auth";
+import SignupForm from "../../components/auth/SignupForm";
 
 export default function SignupPage() {
   const router = useRouter();

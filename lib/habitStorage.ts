@@ -1,4 +1,4 @@
-import { Habit } from "../../types/habit";
+import { Habit } from "../types/habit";
 import { STORAGE_KEYS, getStorage, setStorage } from "./storage";
 
 export function getHabits(): Habit[] {

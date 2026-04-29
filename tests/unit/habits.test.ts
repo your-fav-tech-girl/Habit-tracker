@@ -50,7 +50,7 @@ describe("toggleHabitCompletion", () => {
     const result = toggleHabitCompletion(habit, "2024-01-10");
 
     const duplicates = result.completions.filter(
-      (d, i, arr) => arr.indexOf(d) !== i,
+      (d: string, i: number, arr: string[]) => arr.indexOf(d) !== i,
     );
 
     expect(duplicates.length).toBe(0);

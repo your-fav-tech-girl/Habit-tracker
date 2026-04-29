@@ -1,4 +1,4 @@
-import { User, Session } from "../../types/auth";
+import { User, Session } from "../types/auth";
 import {
   STORAGE_KEYS,
   getStorage,
