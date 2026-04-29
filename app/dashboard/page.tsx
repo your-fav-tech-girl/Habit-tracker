@@ -9,7 +9,11 @@ import {
   getHabits,
   saveHabits,
 } from "../../lib/habitStorage";
-import { Session } from "../../../types/auth";
+type Session = {
+  userId: string;
+  email: string;
+};
+
 import { getHabitSlug } from "../../lib/slug";
 import { calculateCurrentStreak } from "../../lib/streaks";
 import { toggleHabitCompletion } from "../../lib/habits";
