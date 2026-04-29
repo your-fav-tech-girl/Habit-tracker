@@ -1,36 +1,266 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Habit Tracker PWA
 
-## Getting Started
+A mobile-first Progressive Web App (PWA) for tracking daily habits with authentication, streak tracking, and offline support using localStorage.
 
-First, run the development server:
+---
+
+# Project Overview
+
+Habit Tracker is a client-side PWA built with Next.js, React, TypeScript, and Tailwind CSS. It allows users to:
+
+* Sign up and log in with email/password
+* Create, edit, and delete habits
+* Track daily completion of habits
+* View current streaks
+* Persist data locally in the browser
+* Work offline after initial load (PWA support)
+
+This project is fully local-first and does not use any backend or external database.
+
+---
+
+# Tech Stack
+
+* Next.js (App Router)
+* React
+* TypeScript
+* Tailwind CSS
+* localStorage (persistence)
+* Vitest (unit + integration tests)
+* React Testing Library
+* Playwright (E2E tests)
+
+---
+
+# Setup Instructions
+
+### 1. Install dependencies
+
+```bash
+npm install
+```
+
+### 2. Run development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+App runs at:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+# Run Instructions
 
-To learn more about Next.js, take a look at the following resources:
+### Start production build
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run build
+npm run start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+# Test Instructions
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Run all tests
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run test
+```
+
+### Unit tests only
+
+```bash
+npm run test:unit
+```
+
+### Integration tests only
+
+```bash
+npm run test:integration
+```
+
+### End-to-end tests
+
+```bash
+npm run test:e2e
+```
+
+---
+
+# Local Persistence Structure
+
+The app uses `localStorage` with the following keys:
+
+### 1. Users
+
+```ts
+habit-tracker-users
+```
+
+Stores:
+
+```ts
+{
+  id: string;
+  email: string;
+  password: string;
+  createdAt: string;
+}[]
+```
+
+---
+
+### 2. Session
+
+```ts
+habit-tracker-session
+```
+
+Stores:
+
+```ts
+{
+  userId: string;
+  email: string;
+} | null
+```
+
+---
+
+### 3. Habits
+
+```ts
+habit-tracker-habits
+```
+
+Stores:
+
+```ts
+{
+  id: string;
+  userId: string;
+  name: string;
+  description: string;
+  frequency: 'daily';
+  createdAt: string;
+  completions: string[];
+}[]
+```
+
+Each user only sees their own habits filtered by `userId`.
+
+---
+
+# PWA Implementation
+
+The app supports basic Progressive Web App features:
+
+### 1. Manifest
+
+* Defined in `public/manifest.json`
+* Includes:
+
+  * App name
+  * Icons (192x192, 512x512)
+  * Theme colors
+  * Start URL
+
+### 2. Service Worker
+
+* Located in `public/sw.js`
+* Caches app shell on first load
+* Enables offline access to previously loaded pages
+* Prevents hard crashes when offline
+
+### 3. Offline Behavior
+
+* App shell loads from cache if network is unavailable
+* Data remains available via localStorage
+
+---
+
+# Test Coverage Mapping
+
+## Unit Tests
+
+### `tests/unit/slug.test.ts`
+
+* Verifies habit name slug generation
+* Ensures formatting rules (lowercase, hyphens, cleanup)
+
+### `tests/unit/validators.test.ts`
+
+* Validates habit name input rules
+* Ensures empty and length constraints are enforced
+
+### `tests/unit/streaks.test.ts`
+
+* Tests streak calculation logic
+* Ensures consecutive days are counted correctly
+* Ensures duplicates and gaps are handled properly
+
+### `tests/unit/habits.test.ts`
+
+* Tests habit completion toggling logic
+* Ensures immutability
+* Ensures no duplicate completions
+
+---
+
+## Integration Tests
+
+### `tests/integration/auth-flow.test.tsx`
+
+* Tests signup flow creates session
+* Detects duplicate email signup errors
+* Tests login authentication
+* Validates invalid login behavior
+
+### `tests/integration/habit-form.test.tsx`
+
+* Tests habit creation flow
+* Validates form validation errors
+* Tests editing habits
+* Tests deletion confirmation
+* Tests completion + streak update flow
+
+---
+
+## End-to-End Tests (Playwright)
+
+### `tests/e2e/app.spec.ts`
+
+* Splash screen displays and redirects correctly
+* Auth redirects work properly
+* Protected dashboard access enforced
+* Full signup flow works
+* Full login flow works
+* Habit creation works
+* Habit completion updates streak
+* Session persists after reload
+* Logout redirects correctly
+* Offline app shell loads after caching
+
+---
+
+# Summary
+
+This project demonstrates:
+
+* Local-first app 
+* Deterministic state management
+* Test-driven frontend design
+* PWA fundamentals
+* Clean React component structure
+
+---
+
+# End of README
+
+
