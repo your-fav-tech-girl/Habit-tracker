@@ -29,7 +29,7 @@ export default function LoginForm({ onSubmit }: any) {
             data-testid="auth-login-email"
             type="email"
             placeholder="Enter your email"
-            className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-gray-400"
+            className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-black"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
@@ -40,7 +40,7 @@ export default function LoginForm({ onSubmit }: any) {
             data-testid="auth-login-password"
             type="password"
             placeholder="Enter your password"
-            className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-gray-400"
+            className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-black"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
