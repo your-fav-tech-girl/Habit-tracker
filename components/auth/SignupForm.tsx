@@ -27,7 +27,7 @@ export default function SignupForm({ onSubmit }: any) {
             data-testid="auth-signup-email"
             type="email"
             placeholder="Enter your email"
-            className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-green-500 text-black"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
@@ -38,7 +38,7 @@ export default function SignupForm({ onSubmit }: any) {
             data-testid="auth-signup-password"
             type="password"
             placeholder="Create a password"
-            className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-green-500 text-black"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />

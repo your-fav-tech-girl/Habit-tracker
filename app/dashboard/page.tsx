@@ -132,7 +132,7 @@ export default function DashboardPage() {
 
   return (
     <div className="bg-white">
-      <div className="text-center my-6 bg-white">
+      <div className="text-center my-6">
         <h2 className="text-2xl font-bold mb-6">Habit Tracker</h2>
 
         <p className="text-gray-500 text-sm mb-4">
@@ -188,7 +188,7 @@ export default function DashboardPage() {
               >
                 <input
                   data-testid="habit-name-input"
-                  className="w-full border p-2 rounded mb-2 placeholder-black"
+                  className="w-full border p-2 rounded mb-2 text-black"
                   placeholder="Habit name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
@@ -196,7 +196,7 @@ export default function DashboardPage() {
 
                 <input
                   data-testid="habit-description-input"
-                  className="w-full border p-2 rounded mb-2 placeholder-black"
+                  className="w-full border p-2 rounded mb-2 text-black"
                   placeholder="Description"
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
