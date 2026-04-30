@@ -133,7 +133,7 @@ export default function DashboardPage() {
   return (
     <div className="bg-white">
       <div className="text-center my-6">
-        <h2 className="text-2xl font-bold mb-6">Habit Tracker</h2>
+        <h2 className="text-2xl text-black font-bold mb-6">Habit Tracker</h2>
 
         <p className="text-gray-500 text-sm mb-4">
           Your daily consistency tool,one habit at a time.
