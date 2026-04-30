@@ -7,7 +7,6 @@ export default function LoginForm({ onSubmit }: any) {
   return (
     <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-green-50 to-gray-100 px-4">
       <div className="w-full max-w-md bg-white shadow-xl rounded-2xl p-8 border border-gray-100">
-        {/* HEADER */}
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-gray-800"> Habit Tracker</h1>
           <p className="text-gray-500 mt-2">
@@ -15,7 +14,6 @@ export default function LoginForm({ onSubmit }: any) {
           </p>
         </div>
 
-        {/* FORM */}
         <form
           className="flex flex-col gap-4"
           onSubmit={(e) => {
@@ -55,7 +53,7 @@ export default function LoginForm({ onSubmit }: any) {
 
         {/* FOOTER */}
         <p className="text-center text-sm text-gray-500 mt-6">
-          Don’t have an account?
+          Don't have an account?
           <a
             href="/signup"
             className="text-green-700 font-medium ml-1 hover:underline"

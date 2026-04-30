@@ -149,8 +149,8 @@ export default function DashboardPage() {
         </button>
       </div>
 
-      <div className="min-h-screen bg-gray-150 flex">
-        <aside className="hidden md:flex md:w-64 md:flex-col bg-white border-r-black p-6">
+      <div className="min-h-screen bg-gray-50 flex">
+        <aside className="hidden md:flex md:w-64 md:flex-col border-r-black p-6">
           <nav className="space-y-3 text-gray-600">
             <p className="hover:text-black cursor-pointer">Dashboard</p>
             <p className="hover:text-black cursor-pointer">Habits</p>
